@@ -1,6 +1,4 @@
-var React = require('react');
 var util = require('./util');
-
 
 function EventBoxController(view) {
     this._view = view;
@@ -8,7 +6,8 @@ function EventBoxController(view) {
 
 EventBoxController.prototype = {
     render: function () {
-        util.getAllDashboardEvents(this.renderNewData.bind(this));
+      this._view.render();
+      util.getAllDashboardEvents(this.renderNewData.bind(this));
     },
 
     renderNewData: function (error, data) {
