@@ -23,11 +23,14 @@ describe('EventBox', function() {
         callback(null, events);
       });
 
-      var controller = new EventBoxController('dummyView');
-      var spy = sinon.stub(controller, 'renderNewData');
+      var view = {
+        update: sinon.stub()
+      };
+      var controller = new EventBoxController(view);
       controller.render();
 
-      chai_expect(spy).to.have.been.calledWith(null, events);
+      chai_expect(view.update)
+        .to.have.been.calledWith(events);
     });
   });
 

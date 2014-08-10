@@ -12,7 +12,7 @@ EventBoxController.prototype = {
     },
 
     renderNewData: function (error, data) {
-        this._view.setProps({events: data});
+        this._view.update(data);
     }
 };
 
